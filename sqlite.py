@@ -37,9 +37,16 @@ cur.execute('INSERT INTO Workout_Videos (id, length, workout_type, intensity, vi
 cur.execute('INSERT INTO Workout_Videos (id, length, workout_type, intensity, video_link) VALUES (?, ?, ?, ?, ?)', (26, 'long', 'full body', 'medium', 'link'))
 cur.execute('INSERT INTO Workout_Videos (id, length, workout_type, intensity, video_link) VALUES (?, ?, ?, ?, ?)', (27, 'long', 'full body', 'high', 'link'))
 
+conn.commit()
 
+# database query
+array = ['short', 'cardio', 'high']
+cur.execute('SELECT id FROM Workout_Videos WHERE length = ? AND workout_type = ? AND intensity = ?', (array[0], array[1], array[2],))
 
+rows = cur.fetchall()
 
+for row in rows:
+    print(row)
 
 
 
