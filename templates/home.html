@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for new_exercise in new_exercises %}    
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ new_exercise.instructor }}</a>
+                    <small class="text-muted">{{ new_exercise.date_posted }}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{ new_exercise.exercise_name }}</a></h2>
+                <p class="article-content">{{ new_exercise.content }}</p>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
